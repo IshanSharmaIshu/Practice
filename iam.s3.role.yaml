@@ -24,4 +24,5 @@ Resources:
             - Effect: Allow
               Action:                         #Permission Services of AWS Through IAM
                 - s3:GetObject
+                - s3:ListObject
               Resource: !Sub *                #S3 Bucket Name (arn link from s3 bucket, Paste Here)
