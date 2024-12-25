@@ -1,0 +1,27 @@
+AWSTempelateFormatVersion: 2010-09-09
+Description: Build a Ec2 Instance throug Cloud Formation 
+
+Resources:
+  WebAppInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageID:                #Image ID Only Valid In Region
+      InstanceType: t2.micro
+      KeyName:                # Key Name Only Valid In Region
+      SecurityGroupIDs:
+        - !Ref WebAppSecurityGroup
+
+  WebAppSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Join [ '-', [ webapp-security-group, dev ] ]
+      GroupDescription: 'Allow HTTP/HTTPS and SSH inbound and outbound traffic'
+      SecurityGroupIngress: 
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3389
+          ToPort: 3389
+          CidrIp: 0.0.0.0/0
