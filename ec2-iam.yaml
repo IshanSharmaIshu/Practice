@@ -5,9 +5,9 @@ Resources:
   WebAppInstance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageID:                #Image ID Only Valid In Region
+      ImageID: ami-01816d07b1128cd2d               #Image ID Only Valid In Region
       InstanceType: t2.micro
-      KeyName:                # Key Name Only Valid In Region
+      KeyName: n.virginia                          # Key Name Only Valid In Region
       SecurityGroupIDs:
         - !Ref WebAppSecurityGroup
 
